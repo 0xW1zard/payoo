@@ -20,6 +20,18 @@ document.getElementById("button").addEventListener("click", function () {
 
   if (pin === "1234") {
     setBal(newbal);
+
+    const history = document.getElementById("his-cont");
+
+    const newDiv = document.createElement("div");
+      newDiv.innerHTML = `
+    <div class="p-5 bg-base-100 flex gap-2.5 items-center">
+    <div class="bg-base-200 p-3 rounded-full w-fit"> <img src="assets/opt-1.png" alt=""></div>
+    <p>Cash out ${ammount} | New Balance ${newbal}</p>
+            </div>
+    `;
+
+    history.append(newDiv);
   } else {
     alert("Pin Wrong");
     return;
