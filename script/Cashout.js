@@ -1,26 +1,25 @@
 document.getElementById("button").addEventListener("click", function () {
-  const agent = document.getElementById("agent-num").value;
+  const agent = getValue("agent-num");
 
   if (agent.length != 11) {
     alert("Wrong Agent number");
     return;
   }
 
-  const Balance = document.getElementById("balance");
-  const currentBalance = Balance.innerText;
+  const Balance = getBalance("balance");
 
-  const ammount = document.getElementById("ammount").value;
-  const newbal = Number(currentBalance) - Number(ammount);
+  const ammount = getValue("ammount");
+  const newbal = Number(Balance) - Number(ammount);
 
-  if (newbal < 0 || ammount > currentBalance || ammount <= 0) {
+  if (newbal < 0 || ammount > Balance || ammount <= 0) {
     alert("Invalid Ammount");
     return;
   }
 
-  const pin = document.getElementById("input-pin").value;
+  const pin = getValue("input-pin");
 
   if (pin === "1234") {
-    Balance.innerText = newbal;
+    setBal(newbal);
   } else {
     alert("Pin Wrong");
     return;
